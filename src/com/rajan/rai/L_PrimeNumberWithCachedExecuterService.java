@@ -4,9 +4,9 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class A_PrimeNumberWithExecuterService {
+public class L_PrimeNumberWithCachedExecuterService {
 	public static void main(String[] args) {
-		ExecutorService exectorService = Executors.newFixedThreadPool(3);
+		ExecutorService exectorService = Executors.newCachedThreadPool();
 		while (true) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("I can tell you nth prime number, Enter number : ");
