@@ -10,10 +10,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class P_PrimeNumberWithCallable {
+public class Q_PrimeNumberWithCallable {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ExecutorService executorService = Executors.newCachedThreadPool();
-		List<Future<Integer>> futures = new ArrayList<>();
+		List<Callable<Integer>> callableList = new ArrayList<>();
 		while (true) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("I can tell you nth prime number, Enter number : ");
@@ -26,10 +26,9 @@ public class P_PrimeNumberWithCallable {
 					return PrimeNumberUtil.calculateNthPrime(n);
 				}
 			};
-			Future<Integer> primeNumberFutures = executorService.submit(c);
-			futures.add(primeNumberFutures);
+			callableList.add(c);
 		}
-		
+		List<Future<Integer>> futures = executorService.invokeAll(callableList);
 		Iterator<Future<Integer>> iterator = futures.iterator();
 		while (iterator.hasNext()) {
 			Future<Integer> f = iterator.next();

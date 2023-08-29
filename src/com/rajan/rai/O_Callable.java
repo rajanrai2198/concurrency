@@ -23,6 +23,6 @@ public class O_Callable {
 		System.out.println("Executing main Thread....");
 		System.out.println("Executing main Thread....");
 		String s = submit.get();
-		System.out.println("Call able retured :: " + s);
+		System.out.println("Callable retured :: " + s);
 	}
 }
